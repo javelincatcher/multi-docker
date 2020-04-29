@@ -14,19 +14,19 @@ language: generic
 
 after_success:
     # Build all of our images
-    - docker build -t javelincatcher/multi-client ./client
-    - docker build -t javelincatcher/multi-nginx ./nginx
-    - docker build -t javelincatcher/multi-server ./server
-    - docker build -t javelincatcher/multi-worker ./worker
+    - docker build -t mikenol/multi-client ./client
+    - docker build -t mikenol/multi-nginx ./nginx
+    - docker build -t mikenol/multi-server ./server
+    - docker build -t mikenol/multi-worker ./worker
 
     # Log in to the docker CLI using creds stored as vars in Travis CI 
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
     # Push images to docker hub
-    - docker push javelincatcher/multi-client
-    - docker push javelincatcher/multi-nginx
-    - docker push javelincatcher/multi-server
-    - docker push javelincatcher/multi-worker
+    - docker push mikenol/multi-client
+    - docker push mikenol/multi-nginx
+    - docker push mikenol/multi-server
+    - docker push mikenol/multi-worker
 
 #deploy:
 #    provider: elasticbeanstalk
