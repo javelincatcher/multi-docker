@@ -14,10 +14,10 @@ language: generic
 
 after_success:
     # Build all of our images
-    - docker build -t javelincatcher/multi-client -f ./client
-    - docker build -t javelincatcher/multi-nginx -f ./nginx
-    - docker build -t javelincatcher/multi-server -f ./server
-    - docker build -t javelincatcher/multi-worker -f ./worker
+    - docker build -t javelincatcher/multi-client ./client
+    - docker build -t javelincatcher/multi-nginx ./nginx
+    - docker build -t javelincatcher/multi-server ./server
+    - docker build -t javelincatcher/multi-worker ./worker
 
     # Log in to the docker CLI using creds stored as vars in Travis CI 
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
