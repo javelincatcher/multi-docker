@@ -1,5 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ReactDOM from 'react-dom';
+// This is an unknown import that causes a failure
+//import { render } from '@testing-library/react';
 import App from './App';
 
 // This does not work so has to be commented out
