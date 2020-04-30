@@ -28,14 +28,21 @@ after_success:
     - docker push mikenol/multi-server
     - docker push mikenol/multi-worker
 
-#deploy:
-#    provider: elasticbeanstalk
-#    region: "us-east-2"
-#    app: "docker-react"
-#    env: "DockerReact-env"
-#    bucket_name: "elasticbeanstalk-us-east-2-002528515977"
-#    bucket_path: "docker-react"
-#    on:
-#        branch: master
-#    access_key_id: "$AWS_ACCESS_KEY"
-#    secret_access_key: "$AWS_SECRET_KEY"
+deploy:
+    # Only use if you are getting a missing bucket_name error
+    # edge: true
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "multi-docker"
+    env: "MultiDocker-env"
+    # Get this from S3 service in AWS for your region
+    bucket_name: "elasticbeanstalk-us-east-2-002528515977"
+    # This is made up
+    bucket_path: "docker-multi"
+    on:
+        branch: master
+    access_key_id: "$AWS_ACCESS_KEY"
+    # This does not work
+    #secret_access_key:
+    #    secure: "$AWS_SECRET_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
